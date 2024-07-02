@@ -3,6 +3,15 @@ from tensorflow.keras.models import load_model
 from PIL import Image, ImageOps
 import numpy as np
 import json
+import gdown
+
+# Google Drive file IDs
+MODEL_FILE_ID = '1-BAD6lGU2i8QzK3GeKi78uOw0cVApaNv'  # Actual model file ID
+CLASS_INDICES_FILE_ID = '10F32kdZtjZg44MNYtHt827dje_cuQNyI'  # Actual class indices file ID
+
+# Download files from Google Drive
+gdown.download(f'https://drive.google.com/uc?id={MODEL_FILE_ID}', 'Plant_Disease_Prediction_System.h5', quiet=False)
+gdown.download(f'https://drive.google.com/uc?id={CLASS_INDICES_FILE_ID}', 'class_indices.json', quiet=False)
 
 # Load the trained model
 model = load_model('Plant_Disease_Prediction_System.h5')
