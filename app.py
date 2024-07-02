@@ -69,7 +69,7 @@ if uploaded_file is not None:
 
     # Preprocess the image to fit the model input requirements
     size = (150, 150)  # Set the desired image size
-    image = ImageOps.fit(image, size, Image.ANTIALIAS)
+    image = ImageOps.fit(image, size, Image.LANCZOS)
     image_array = np.asarray(image)
     image_array = np.expand_dims(image_array, axis=0)  # Create batch dimension
     image_array = image_array / 255.0  # Normalize the image
